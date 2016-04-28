@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<h3>Hello! Your id:</h3>
-
-<p>{{ id }}</p>
-
-</body>
-</html>
+{% extends "coworker/coworker_base.html" %}
+{% block content %}
+    <h3>Hello! Your id:</h3>
+    <p>{{ id }}</p>
+{% endblock content %}
