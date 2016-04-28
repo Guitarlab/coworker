@@ -1,4 +1,4 @@
 *.pyc
 myvenv*
-db.sqlite3
+db.sqlite*
 secret_settings.py
