@@ -22,7 +22,7 @@ def profile(request):
 
     github_user = Github(current_token)
     params = {
-        'login': github_user.login,
+        'login': github_user.get_user().login,
 
     }
 
