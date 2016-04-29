@@ -16,8 +16,9 @@ def profile(request):
 
     github_socialapp = SocialApp.objects.get(name='github app')
     current_socialaccount = SocialAccount.objects.get(user=current_user)
-    current_token = SocialToken.objects.get(app=github_socialapp,
-                                            account=current_socialaccount)
+    social_token = SocialToken.objects.get(app=github_socialapp,
+                                           account=current_socialaccount)
+    current_token = social_token.token
 
     github_user = Github(current_token)
     params = {
