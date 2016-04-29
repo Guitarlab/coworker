@@ -1,0 +1,6 @@
+*.pyc
+myvenv*
+db.sqlite*
+secret_settings.py
+.idea/
+.DS_Store

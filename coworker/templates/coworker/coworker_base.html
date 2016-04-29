@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>C0W0RK3R</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+<h1>Welcome!!!</h1>
+{% block menu %}
+    <div class="menu">
+        <h2>my menu:</h2>
+        <a href="{% url "index" %}">Home</a>
+        <a href="{% url "account_login" %}">Login</a>
+        <a href="{% url "profile" %}">Profile</a>
+        <a href="{% url "account_logout" %}">Logout</a>
+    </div>
+{% endblock menu %}
+
+{% block content %}
+{% endblock content %}
+<a href="{% url "admin:index" %}">for admins...</a>
+</body>
+</html>
