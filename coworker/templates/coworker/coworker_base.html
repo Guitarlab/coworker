@@ -10,13 +10,13 @@
 <h1>Welcome!!!</h1>
 {% block menu %}
     <div class="menu">
-        <h2>my menu:</h2>
+        <h3>my menu:</h3>
         <a href="{% url "index" %}">Home</a>
         <a href="{% url "account_login" %}">Login</a>
         <a href="{% url "profile" %}">Profile</a>
         <a href="{% url "account_logout" %}">Logout</a>
     </div>
-{% endblock menu %}
+ {% endblock menu %}
 
 {% block content %}
 {% endblock content %}
