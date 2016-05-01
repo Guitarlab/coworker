@@ -26,3 +26,7 @@ def profile(request):
     }
 
     return render(request, 'coworker/profile.html', {'params': params})
+
+
+def choose_project(request):
+    pass
