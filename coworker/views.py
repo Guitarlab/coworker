@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from allauth.socialaccount.models import SocialApp, SocialAccount, SocialToken
-from github import Github
+from coworker.github_api import get_github_user
 
 
 # Create your views here.
@@ -13,18 +12,15 @@ def index(request):
 @login_required
 def profile(request):
     current_user = request.user
+    github_user = get_github_user(current_user)
 
-    github_socialapp = SocialApp.objects.get(name='github app')
-    current_socialaccount = SocialAccount.objects.get(user=current_user)
-    social_token = SocialToken.objects.get(app=github_socialapp,
-                                           account=current_socialaccount)
-    current_token = social_token.token
-    github_user = Github(current_token)
+    # save to session
+    request.session['github_user'] = github_user
+
     params = {
         'login': github_user.get_user().login,
 
     }
-
     return render(request, 'coworker/profile.html', {'params': params})
 
 

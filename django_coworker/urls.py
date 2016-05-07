@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^accounts/profile/', coworker_views.profile, name='profile'),
+    url(r'^coworker/', include('coworker.urls')),
     url(r'^$', coworker_views.index, name='index')
 ]
