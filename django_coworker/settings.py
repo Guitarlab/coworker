@@ -139,3 +139,6 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 # AUTH_USER_MODEL = 'CustomUser'
+
+
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'

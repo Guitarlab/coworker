@@ -1,0 +1,9 @@
+{% extends "coworker/coworker_base.html" %}
+{% block content %}
+    <h1>Your repositories:</h1>
+    {% for rep in repos %}
+        <li>
+            {{ rep.name }} -- id:{{ rep.id }}
+        </li>
+    {% endfor %}
+{% endblock content %}
