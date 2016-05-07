@@ -3,7 +3,9 @@
     <h1>Your repositories:</h1>
     {% for rep in repos %}
         <li>
-            {{ rep.name }} -- id:{{ rep.id }}
+            <a href="{% url 'coworker:add_project' rep.id %}">
+                {{ rep.name }} -- id:{{ rep.id }}
+            </a>
         </li>
     {% endfor %}
 {% endblock content %}

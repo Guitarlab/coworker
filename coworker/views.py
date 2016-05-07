@@ -19,12 +19,7 @@ def profile(request):
 
     github_user = github_account.get_user()
 
-    # repos = github_api.get_repos(github_user)
-
-    params = {
-        'login': github_user.login,
-    }
-    return render(request, 'coworker/profile.html', {'params': params})
+    return render(request, 'coworker/profile.html', {'github_user': github_user})
 
 
 @login_required
@@ -32,3 +27,8 @@ def choose_project(request):
     github_account = request.session['github_account']
     repos = github_account.get_user().get_repos()
     return render(request, 'coworker/choose_project.html', {'repos': repos})
+
+
+@login_required
+def add_project(request, rep_id):
+    return render(request, 'coworker/add_project.html', {'rep': rep_id})
