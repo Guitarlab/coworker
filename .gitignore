@@ -1,4 +1,5 @@
 *.pyc
+fixtures
 myvenv*
 db.sqlite*
 secret_settings.py

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'coworker.apps.CoworkerConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +44,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
-    'coworker',
 
 ]
 
@@ -137,3 +137,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
+# AUTH_USER_MODEL = 'CustomUser'
+
+
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'

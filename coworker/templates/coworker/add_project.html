@@ -1,0 +1,11 @@
+{% extends "coworker/coworker_base.html" %}
+{% block content %}
+    <h2>{{ rep.name }}</h2>
+    {% for issue in issues %}
+        <li>
+            <h3>{{ issue.title }}</h3>
+            {{ issue.body }}
+        </li>
+    {% endfor %}
+
+{% endblock content %}

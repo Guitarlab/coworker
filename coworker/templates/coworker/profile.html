@@ -1,4 +1,6 @@
 {% extends "coworker/coworker_base.html" %}
 {% block content %}
-    <h3>Hello {{ params.login }}!</h3>
+    <h3>Hello {{ github_user.login }}!</h3>
+    <a href="{% url 'coworker:choose_project' %}">Choose project</a>
+    <br>
 {% endblock content %}
