@@ -1,0 +1,21 @@
+{% extends "coworker/coworker_base.html" %}=
+{% block content %}
+    <br>
+    <br>
+    <h2 class = "text-center">{{ rep.name }}</h2>
+    <br>
+    <br>
+            <div class = "container">
+                <div class = "row">
+                    {% for issue in issues %}
+                    <div class = "col-sm-4">
+                        <div class = "panel panel-primary">
+                            <div class = "panel-heading">{{ issue.title }}</div>
+                            <div class = "panel-body">{{ issue.body }}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+{% endblock content %}

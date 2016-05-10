@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from allauth.socialaccount.models import SocialApp, SocialAccount, SocialToken
-from github import Github
+from django.http import HttpResponse
+from . import github_api
 
 
 # Create your views here.
@@ -13,16 +13,28 @@ def index(request):
 @login_required
 def profile(request):
     current_user = request.user
+    github_account = github_api.get_github_account(current_user)
 
-    github_socialapp = SocialApp.objects.get(name='github app')
-    current_socialaccount = SocialAccount.objects.get(user=current_user)
-    social_token = SocialToken.objects.get(app=github_socialapp,
-                                           account=current_socialaccount)
-    current_token = social_token.token
-    github_user = Github(current_token)
-    params = {
-        'login': github_user.get_user().login,
+    # save to session
+    request.session['github_account'] = github_account
 
-    }
+    return render(request, 'coworker/profile.html', {'github_account': github_account})
 
-    return render(request, 'coworker/profile.html', {'params': params})
+
+@login_required
+def choose_project(request):
+    github_account = request.session['github_account']
+    repos = github_account.get_user().get_repos()
+    return render(request, 'coworker/choose_project.html', {'repos': repos})
+
+
+@login_required
+def add_project(request, rep_id):
+    github_account = request.session['github_account']
+    # TODO: add exception
+    rep = github_account.get_repo(int(rep_id))
+    if github_account.get_user().id == rep.owner.id:
+        issues = rep.get_issues()
+        return render(request, 'coworker/add_project.html', {'rep': rep, 'issues': issues})
+    else:
+        return HttpResponse("You can add only your own project!")

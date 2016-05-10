@@ -1,0 +1,7 @@
+Django==1.9.5
+django-allauth==0.25.2
+oauthlib==1.0.3
+PyGithub==1.26.0
+python-openid==2.2.5
+requests==2.9.1
+requests-oauthlib==0.6.1
