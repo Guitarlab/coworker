@@ -1,5 +1,24 @@
 {% extends "coworker/coworker_base.html" %}
 {% block content %}
-    <p>This project can help you with finding coworkers for your
+    <p class="text-center">This system can help you with finding coworkers for your
         projects on Github!</p>
+    <br>
+    <br>
+    <br>
+    <div class = "container text-center">
+        <div class = "row">
+            <div class = "col-sm-3"></div>
+            <div class = "col-sm-3">
+                <a href="{% url "profile" %}">
+            	    <img src = "https://d30y9cdsu7xlg0.cloudfront.net/png/149933-200.png" style = "width:100px;height:100px;border:0;margin:30px">
+            	</a>
+            </div>
+            <div class = "col-sm-3">
+                <a>
+                    <img src = "https://d30y9cdsu7xlg0.cloudfront.net/png/327448-200.png" style = "width:100px;height:100px;border:0;margin:30px">
+                </a>
+            </div>
+            <div class = "col-sm-3"></div>
+        </div>
+    </div>
 {% endblock content %}

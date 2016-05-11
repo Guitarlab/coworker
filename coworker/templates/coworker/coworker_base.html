@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>C0W0RK3R</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <style> 
+        body {
+            background-image: url("http://www.arhcso.ru/images/bgmax/Bankoboev.Ru_svetlo_biryuzovyi_fon.jpg");
+        }
+    </style>
+    <title>C0W0RK3R</title>
 </head>
 <body>
-<h1>Welcome!!!</h1>
-{% block menu %}
-    <div class="menu">
-        <h2>my menu:</h2>
-        <a href="{% url "index" %}">Home</a>
-        <a href="{% url "account_login" %}">Login</a>
-        <a href="{% url "profile" %}">Profile</a>
-        <a href="{% url "account_logout" %}">Logout</a>
-    </div>
-{% endblock menu %}
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url "index" %}">COWORK3R</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url "account_login" %}">Login</a></li>
+            <li><a href="{% url "profile" %}">Profile</a></li>
+            <li><a href="{% url "account_logout" %}">Logout</a></li>
+            <li><a href="{% url "admin:index" %}">Admin</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
+
+<div class="container">
+    <br>
+    <h1 class="text-center">Welcome to COWORK3R system</h1> 
+</div>
 {% block content %}
 {% endblock content %}
-<br>
-<a href="{% url "admin:index" %}">for admins...</a>
 </body>
 </html>
