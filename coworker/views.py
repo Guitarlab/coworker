@@ -35,6 +35,10 @@ def add_project(request, rep_id):
     github_account = request.session['github_account']
     # TODO: add exception
     rep = github_account.get_repo(int(rep_id))
+    if request.method == "POST":
+        print(request.POST)
+        return HttpResponse(content=rep.id)
+
     if github_account.get_user().id == rep.owner.id:
         issues = rep.get_issues()
         return render(request, 'coworker/add_project.html', {'rep': rep, 'issues': issues})

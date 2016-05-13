@@ -2,21 +2,26 @@
 {% block content %}
     <br>
     <br>
-    <h2 class = "text-center">{{ rep.name }}</h2>
+    <h2 class="text-center">{{ rep.name }}</h2>
     <br>
     <br>
-            <div class = "container">
-                <div class = "row">
-                    {% for issue in issues %}
-                    <div class = "col-sm-4">
-                        <div class = "panel panel-primary">
-                            <div class = "panel-heading">{{ issue.title }}</div>
-                            <div class = "panel-body">{{ issue.body }}</div>
+    <div class="container">
+        <div class="row">
+            <form action="{% url 'coworker:add_project' rep.id %}" METHOD="post">
+                {% csrf_token %}
+                {% for issue in issues %}
+                    <div class="col-sm-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">{{ issue.title }}</div>
+                            <div class="panel-body">{{ issue.body }}</div>
                         </div>
                     </div>
-                    {% endfor %}
-                </div>
-            </div>
+                {% endfor %}
+                <input type="submit" value="Add_project">
+            </form>
+
+        </div>
+    </div>
 
 
 {% endblock content %}
