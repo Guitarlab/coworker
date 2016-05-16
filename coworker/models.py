@@ -1,8 +1,15 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
+
+
 # from django.contrib.auth.models import User
 
+
+class Relations(models.Model):
+    profile_id = models.ForeignKey('auth.User')
+    project_id = models.IntegerField()
+    owner = models.BooleanField()
 
 # class Profile(models.Model):
 #     github_account_id = models.CharField(max_length=256)
