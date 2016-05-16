@@ -7,7 +7,7 @@ from django.utils import timezone
 
 
 class Relations(models.Model):
-    profile_id = models.ForeignKey('auth.User')
+    profile = models.ForeignKey('auth.User')
     project_id = models.IntegerField()
     owner = models.BooleanField()
 

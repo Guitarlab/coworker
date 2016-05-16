@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from coworker.models import Relations
 from . import github_api
 
 
@@ -8,6 +9,11 @@ from . import github_api
 
 def index(request):
     return render(request, 'coworker/index.html', {})
+
+
+def project_list(request):
+    projects = Relations.objects.filter(owner=True)
+    return render(request, 'coworker/project_list.html', {'projects': projects})
 
 
 @login_required
@@ -37,6 +43,11 @@ def add_project(request, rep_id):
     rep = github_account.get_repo(int(rep_id))
     if request.method == "POST":
         print(request.POST)
+        relation = Relations()
+        relation.profile = request.user
+        relation.project_id = int(rep_id)
+        relation.owner = True
+        relation.save()
         return HttpResponse(content=rep.id)
 
     if github_account.get_user().id == rep.owner.id:

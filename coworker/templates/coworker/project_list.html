@@ -1,0 +1,8 @@
+{% extends "coworker/coworker_base.html" %}
+{% block content %}
+    <h2>Project list</h2>
+    {% for project in projects %}
+        <li>{{ project.project_id }}</li>
+    {% endfor %}
+
+{% endblock content %}
