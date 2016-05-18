@@ -1,9 +1,9 @@
 {% extends "coworker/coworker_base.html" %}
 {% block content %}
     <h2>Project list</h2>
-    {% for project in projects %}
+    {% for relation in relations %}
         <a href="">
-            {{ project.project_id }} -- {{ project.profile }}
+            {{ relation.profile.login }} -- {{ relation.repository.name }}
         </a>
     {% endfor %}
 

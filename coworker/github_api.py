@@ -10,8 +10,3 @@ def get_github_account(current_user):
     current_token = social_token.token
     github_account = Github(current_token)
     return github_account
-
-
-def get_repos(github_user):
-    repos = github_user.get_repos()
-    return repos

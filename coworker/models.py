@@ -7,22 +7,26 @@ from django.utils import timezone
 
 class GithubProfile(models.Model):
     user = models.ForeignKey('auth.User')
-    login = models.CharField(max_length=50)
+    login = models.CharField(max_length=50, unique=True)
 
 
-class Project(models.Model):
+class Repository(models.Model):
     owner = models.ForeignKey('GithubProfile')
-    title = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    github_id = models.IntegerField(unique=True)
 
 
 class Issue(models.Model):
-    project = models.ForeignKey('Project')
+    repository = models.ForeignKey('Repository')
     title = models.CharField(max_length=100)
+    body = models.CharField(max_length=200)
+    state = models.CharField(max_length=50)
+    github_id = models.IntegerField(unique=True)
 
 
-class Relations(models.Model):
+class Relation(models.Model):
     profile = models.ForeignKey('GithubProfile')
-    project = models.ForeignKey('Project')
+    repository = models.ForeignKey('Repository')
     owner = models.BooleanField()
 
 # class Profile(models.Model):

@@ -1,6 +1,6 @@
 # C0W0RK3R
 *Find coworkers for your opensource projects!*
-
+0. install requirements ( pip install -r requirements.txt )
 1. add "127.0.0.1 coworker.pythonanywhere.com" to your file "hosts"
 2. create/copy  file "secret_settings.py" in "django_coworker" folder
    and "initial.json" in "coworker/coworker/fixtures"
