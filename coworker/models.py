@@ -5,10 +5,24 @@ from django.utils import timezone
 
 # from django.contrib.auth.models import User
 
+class GithubProfile(models.Model):
+    user = models.ForeignKey('auth.User')
+    login = models.CharField(max_length=50)
+
+
+class Project(models.Model):
+    owner = models.ForeignKey('GithubProfile')
+    title = models.CharField(max_length=100)
+
+
+class Issue(models.Model):
+    project = models.ForeignKey('Project')
+    title = models.CharField(max_length=100)
+
 
 class Relations(models.Model):
-    profile = models.ForeignKey('auth.User')
-    project_id = models.IntegerField()
+    profile = models.ForeignKey('GithubProfile')
+    project = models.ForeignKey('Project')
     owner = models.BooleanField()
 
 # class Profile(models.Model):

@@ -26,6 +26,10 @@ def profile(request):
 
     github_user = github_account.get_user()
 
+    # Load user info (profile, projects, issues) from Github:
+
+
+
     return render(request, 'coworker/profile.html', {'github_user': github_user})
 
 

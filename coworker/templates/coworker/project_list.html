@@ -2,7 +2,9 @@
 {% block content %}
     <h2>Project list</h2>
     {% for project in projects %}
-        <li>{{ project.project_id }}</li>
+        <a href="">
+            {{ project.project_id }} -- {{ project.profile }}
+        </a>
     {% endfor %}
 
 {% endblock content %}

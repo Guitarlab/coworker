@@ -14,4 +14,4 @@ def get_github_account(current_user):
 
 def get_repos(github_user):
     repos = github_user.get_repos()
-    return reposi
+    return repos
